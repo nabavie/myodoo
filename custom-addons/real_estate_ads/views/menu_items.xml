@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Root Menu -->
+    <menuitem id="menu_property_root" 
+              name="Real Estate"
+              sequence="1"
+              web_icon="real_estate_ads,static/description/icon.png"
+              />
+
+    <!-- Main Menu -->
+    <menuitem id="menu_property_main" 
+              name="Advertisements"
+              parent="menu_property_root"
+              sequence="1"/>
+    
+        <!-- Main Menu -->
+    <menuitem id="menu_property_settings" 
+              name="Settings"
+              parent="menu_property_root"
+              sequence="2"/>
+
+    <!-- Sub Menu linked to action -->
+    <menuitem id="menu_property_list" 
+              name="Properties"
+              parent="menu_property_main"
+              action="real_estate_ads.action_property"
+              sequence="1"/>
+
+    <!-- Settings property type linked to action -->
+    <menuitem id="menu_property_type_list" 
+              name="Property Type"
+              parent="menu_property_settings"
+              action="real_estate_ads.action_property_type"
+              sequence="1"/>
+    
+        <!-- Settings property tag linked to action -->
+    <menuitem id="menu_property_tag_list" 
+              name="Property Tag"
+              parent="menu_property_settings"
+              action="real_estate_ads.action_property_tag"
+              sequence="2"/>
+</odoo>
