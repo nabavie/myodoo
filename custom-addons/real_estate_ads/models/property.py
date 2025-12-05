@@ -5,6 +5,7 @@ class Property(models.Model):
     _description = 'Real Estate Module to show'
 
     name = fields.Char(string="Name", required=True)
+    active = fields.Boolean(default=True)
     type_id=fields.Many2one('estate.property.type', string="Property Type")
     tag_ids=fields.Many2many('estate.property.tag', string="Property Tag")
     description = fields.Text(string="Description")
@@ -30,6 +31,7 @@ class Property(models.Model):
         default='north'
     )
     offer_ids=fields.One2many('estate.property.offer', 'property_id', string="Offers")
+    
 
     @api.depends('living_area','garden_area')
     def _compute_total_area(self):
