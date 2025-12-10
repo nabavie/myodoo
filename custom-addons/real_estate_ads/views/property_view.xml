@@ -50,50 +50,51 @@
         </field>
     </record>
 
-    <!-- Form View for estate.property -->
-    <record id="view_property_form" model="ir.ui.view">
-        <field name="name">estate.property.form</field>
-        <field name="model">estate.property</field>
-        <field name="arch" type="xml">
-            <form string="Property">
-                <sheet>
+ <!-- Form View for estate.property -->
+<record id="view_property_form" model="ir.ui.view">
+    <field name="name">estate.property.form</field>
+    <field name="model">estate.property</field>
+    <field name="arch" type="xml">
+        <form string="Property">
+            <sheet>
+                <group>
+                    <field name="tag_ids" widget="many2many_tags"/>
                     <group>
-                        <field name="tag_ids" widget="many2many_tags"/>
-                        <group>
-                            <field name="name"/>
-                            <field name="type_id"/>
-                            <field name="postcode"/>
-                            <field name="date_availability"/>
-                            <field name="active" invisible="1"/>
-                        </group>
-                        <group>
-                            <field name="expected_price"/>
-                            <field name="best_price"/>
-                            <field name="selling_price"/>
-                        </group>
+                        <field name="name"/>
+                        <field name="type_id"/>
+                        <field name="postcode"/>
+                        <field name="date_availability"/>
+                        <field name="active" invisible="1"/>
                     </group>
-                    <notebook>
-                        <page string="Description">
-                            <group>
-                                <field name="description"/>
-                                <field name="bedrooms"/>
-                                <field name="living_area"/>
-                                <field name="facades"/>
-                                <field name="garage"/>
-                                <field name="garden"/>
-                                <field name="garden_area" invisible="not garden"/>
-                                <field name="garden_orientation" invisible="not garden"/>
-                                 <field name="total_area"/>
-                            </group>
-                        </page>
-                        <page string="Offers">
-                            <field name="offer_ids" widget="one2many_list" view_id="view_property_offer_tree"/>
-                        </page>
-                    </notebook>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                    <group>
+                        <field name="expected_price"/>
+                        <field name="best_price"/>
+                        <field name="selling_price"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Description">
+                        <group>
+                            <field name="description"/>
+                            <field name="bedrooms"/>
+                            <field name="living_area"/>
+                            <field name="facades"/>
+                            <field name="garage"/>
+                            <field name="garden"/>
+                            <field name="garden_area" invisible="not garden"/>
+                            <field name="garden_orientation" invisible="not garden"/>
+                            <field name="total_area"/>
+                        </group>
+                    </page>
+                    <page string="Offers">
+                        <field name="offer_ids" widget="one2many_list"/>
+                    </page>
+                </notebook>
+            </sheet>
+            <chatter/>
+        </form>
+    </field>
+</record>
 
     <!-- Action for all records -->
     <record id="action_property" model="ir.actions.act_window">

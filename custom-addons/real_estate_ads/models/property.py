@@ -3,6 +3,7 @@ from odoo import fields, models, api
 class Property(models.Model):
     _name = 'estate.property'
     _description = 'Real Estate Module to show'
+    _inherit = ['mail.thread', 'mail.activity.mixin'] 
 
     name = fields.Char(string="Name", required=True)
     active = fields.Boolean(default=True)
