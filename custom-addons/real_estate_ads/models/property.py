@@ -4,8 +4,9 @@ class Property(models.Model):
     _name = 'estate.property'
     _description = 'Real Estate Module to show'
     _inherit = ['mail.thread', 'mail.activity.mixin'] 
+    _track = True
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(string="Name", required=True, tracking=True)
     active = fields.Boolean(default=True)
     type_id=fields.Many2one('estate.property.type', string="Property Type")
     tag_ids=fields.Many2many('estate.property.tag', string="Property Tag")
