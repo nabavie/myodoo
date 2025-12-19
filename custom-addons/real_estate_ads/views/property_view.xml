@@ -11,6 +11,9 @@
                    <field name="name"/>
                     <field name="bedrooms"/>
                     <filter name="filter_male" string="Male" domain="[('name','=','Beverly')]" />
+                    <searchpanel>
+                           <field name="garden_orientation" string="Orientation" enable_counter="1"/>
+                    </searchpanel>
                 </search>
             </field>
         </record>

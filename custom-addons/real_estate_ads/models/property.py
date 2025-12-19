@@ -12,7 +12,7 @@ class Property(models.Model):
     tag_ids=fields.Many2many('estate.property.tag', string="Property Tag")
     description = fields.Text(string="Description")
     postcode = fields.Char(string="Postcode")
-    date_availability = fields.Date(string="Available from")  
+    date_availability = fields.Date(string="Available from", default=fields.Date.context_today)  
     expected_price = fields.Float(string="Expected Price")  
     best_price = fields.Float(string="Best Offer")
     selling_price = fields.Float(string="Selling Price")
